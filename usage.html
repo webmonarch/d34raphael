@@ -1,0 +1,48 @@
+---
+title: "Usage: d34raphael"
+layout: default
+---
+
+<h2>Using d3<sup>4</sup>raphael</h2>
+
+To use d34raphael:
+
+<h3>(1) Include the scripts</h3>
+<code>
+&lt;!--[if lte IE 8]&gt; <br />
+&lt;script type="text/javascript" src="<a href="./d3/lib/sizzle/sizzle.js">../../lib/sizzle/sizzle.js</a>&gt;&lt;/script&gt; <br />
+&lt;script type="text/javascript" src="<a href="./d3/lib/ie8/compat.js">../../lib/ie8/compat.js</a>&gt;&lt;/script&gt; <br />
+&lt;![endif]--&gt; <br />
+&lt;script type="text/javascript" src="<a href="./d3/lib/raphael/raphael.js">../../lib/raphael/raphael.js</a>"&gt;&lt;/script&gt; <br />
+&lt;script src="<a href="./d3/d3.v2.js">../../d3.v2.js</a>"&gt;&lt;/script&gt;
+</code>
+
+<h3>(2) Write Raphael Compatible d3 Code</h3>
+
+<p>When using d34raphael, you must remember you aren't writing SVG...You are writing Raphael vector code.</p>
+
+<p>The main differences between an SVG and Raphael version of a d3 page is:</p>
+
+<ol>
+    <li>Include d34raphael supported scripts</li>
+    <li>Setup the Raphael paper (instead of SVG)</li>
+    <li>Call Raphael version of SVG functions (like: <code>d3.raphael.axis()</code> instead of <code>d3.svg.axis()</code>)</li>
+    <li>Replace SVG g references (Raphael doesn't currently have group elements)</li>
+    <li>Tweak your CSS selectors (since raphael is a flat, unlike SVG)</li>
+</ol>
+
+<p>You can see the <a href="#diff">specific differences in the d34raphael implementation</a> below.</p>
+
+<h4>Area Chart Example Code</h4>
+
+<p>This is the area chart example code for d34raphael.</p>
+
+<script src="https://gist.github.com/2573905.js"> </script>
+
+<p>Looks like nice clean d3 right?</p>
+
+<h4 id="diff">Diff Between SVG and Raphael Version of Area Chart</h4>
+
+<p>These are the changes from the original SVG version of the area chart and the d34raphael version.</p>
+
+<script src="https://gist.github.com/2573961.js"> </script>

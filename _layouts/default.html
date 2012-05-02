@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+    <title>{{ page.title }}</title>
+
+    <link href="./site.css" media="all" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-31349418-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+<div id="header">
+    <h1><a href="./">d3<sup>4</sup>raphael</a></h1>
+</div>
+<div id="body">
+    <div id="navcontainer">
+        <a href="./examples.html">Examples</a>
+        <a href="./usage.html">Usage</a>
+        <a href="./help.html">Help Us</a>
+    </div>
+
+    {{ content }}</div>
+<div id="footer"></div>
+</body>
+</html>
