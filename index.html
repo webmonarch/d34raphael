@@ -1,1 +1,169 @@
-My GitHub Page
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+    <title>d34raphael</title>
+    <style type="text/css">
+        html {
+            background: url(bg.jpg);
+        }
+
+        body {
+            font-family: "Georgia", "Times New Roman", serif;
+            letter-spacing: 1.5px;
+
+            margin-left: auto;
+            margin-right: auto;
+
+            width: 62%;
+            min-width: 900px;
+        }
+
+        a, a:visited {
+            color: black;
+            border: none;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        #header h1 {
+            font-size: 2.5em;
+        }
+
+        #body {
+            background-color: white;
+            border: solid 1px #d3d3d3;
+
+            padding: 0 20px 20px 20px;
+        }
+
+        .warn {
+            background-color: #ffb6c1;
+        }
+
+        .warn.block {
+            padding: 10px;
+        }
+
+        img.thumbnail {
+            border: solid 5px #d3d3d3;
+        }
+
+        .inline-anchors a {
+            position: relative;
+            float: left;
+            margin-right: 30px;
+            margin-bottom: 20px;
+        }
+
+        .floatclearboth {
+            clear: both;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-31349418-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+<div id="header">
+    <h1>d3<sup>4</sup>raphael</h1>
+</div>
+<div id="body">
+    <h2>What is this?</h2>
+    <p>
+        This is a fork of the <strong>d3</strong> (<a href="http://d3js.org/">http://d3js.org/</a>) Javascript data library
+        to allow d3 to work as elegantly with the <strong>Raphael</strong> (<a href="http://raphaeljs.com/">http://raphaeljs.com/</a>) vector drawing library
+        as d3 natively does with SVG.
+    </p>
+
+    <h2>See it in action!</h2>
+    <p class="inline-anchors">
+        <a href="">
+            Bar Chart Example:<br />
+            <img class="thumbnail" src="bar.png" alt="Bar Chart Thumbnail" title="Bar Chart Example" width="215" height="215" />
+        </a>
+        <a href="">
+            Area Chart Example:<br />
+            <img class="thumbnail" src="area.png" alt="Area Chart Thumbnail" title="Area Chart Example" width="215" height="215" />
+        </a>
+    </p>
+
+    <p class="floatclearboth">More examples to come.</p>
+
+    <h2>How can I use this?</h2>
+
+    <p>Look at the source of the <a href="examples.html">example projects above</a>.</p>
+
+    <ol>
+        <li><a href="./d3/lib/raphael/raphael.js">Patched Raphael</a> (see the diff)</li>
+        <li><a href="./d3/d3.v2.js">d3 with Raphael support</a></li>
+        <li>(For IE8) <a href="./d3/lib/sizzle/sizzle.js">Sizzle</a> selector library</li>
+        <li>(For IE8) <a href="./d3/lib/ie8/compat.js">IE Array.prototype and CSS fixes</a></li>
+        <li>Write Raphael compatible d3</li>
+    </ol>
+
+    <h2>Why?</h2>
+    <p>
+        Because Internet Explorer &lt;= 8 is still important to many people. IE8 and below doesn't natively
+        support SVG, but does support an older Microsoft vector drawing standard called VML.  Raphael provides an
+        abstraction layer between your Javascript code and the vector art implementation of the browser.
+    </p>
+
+    <p>
+        Specifically, Raphael does VML for IE8 and SVG for everyone else.
+    </p>
+
+    <h2 id="help">How you can help?</h2>
+
+    <p>If you find d3 and raphael useful together, please help!  This project only exists because of the awesome work of the open source community.</p>
+
+    <ul>
+        <li>More examples! (<a href="examples.html">see what we have</a>)</li>
+        <li>Get this code merged into d3.</li>
+        <li>More test cases! (<a href="https://github.com/webmonarch/d3/tree/raphael-compat/test/raphael">see what we have</a>)</li>
+        <li>Improve the Raphael integration into d3</li>
+        <li>Anything else?</li>
+    </ul>
+
+    <p>To help you get started?</p>
+
+    <ul>
+        <li><a href="https://github.com/webmonarch/d3/tree/raphael-compat">Fork the code</a></li>
+        <li><a href="https://github.com/webmonarch/d34raphael/issues">Create an issue</a></li>
+        <li><a href="https://github.com/webmonarch/d3/tree/raphael-compat/test/raphael">Add test cases!</a></li>
+    </ul>
+
+    <h2>Links</h2>
+
+    <ul>
+        <li><a href="https://github.com/webmonarch/d3/tree/raphael-compat">The code on GitHub</a></li>
+        <li><a href="http://d3js.org/">d3 library</a></li>
+        <li><a href="http://raphaeljs.com/">Raphael library</a></li>
+        <li><a href="https://github.com/mhemesath/r2d3">r2d3</a>: another project working on d3 + raphael interoperability</li>
+    </ul>
+
+    <h2>Thanks</h2>
+
+    <p>
+        This project wouldn't mean anything without the work of Mike Bostock (<a href="http://bost.ocks.org/mike/">http://bost.ocks.org/mike/</a>) on d3
+        and Dmitry Baranovskiy (<a href="http://dmitry.baranovskiy.com/">http://dmitry.baranovskiy.com/</a>) on Raphael.
+    </p>
+
+</div>
+<div id="footer"></div>
+</body>
+</html>
