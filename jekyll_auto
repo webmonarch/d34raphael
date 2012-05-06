@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#
+# Convience script to auto-invoke jekyll on file changes.
+#
+
+trap "" TERM # ignore TERM signal since we send it to ourselves
+
+while inotifywait . -r -e create -e modify -e delete @./_site/ @./.git/ @./.idea/ -qq ; do 
+	pkill -TERM jekyll
+	echo "Building `date`..."
+	jekyll > /dev/null 2>&1 && echo "Done." & 
+done

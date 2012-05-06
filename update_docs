@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#
+# Scripts updates the d34raphael API docs by rebuilding the docs in 
+# the d3 submodule, and replacing the existing d34raphael copy in ./api
+#
+
+cd d3
+./make_docs
+cd ..
+[ -d api ] && rm -r api
+cp -r d3/docs/api api
+
