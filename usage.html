@@ -5,44 +5,89 @@ layout: default
 
 <h2>Using d3<sup>4</sup>raphael</h2>
 
-To use d34raphael:
+<h3 id="quick-start">Quick Start</h3>
 
-<h3>(1) Include the scripts</h3>
-<code>
-&lt;!--[if lte IE 8]&gt; <br />
-&lt;script type="text/javascript" src="<a href="./d3/lib/sizzle/sizzle.js">../../lib/sizzle/sizzle.js</a>&gt;&lt;/script&gt; <br />
-&lt;script type="text/javascript" src="<a href="./d3/lib/ie8/compat.js">../../lib/ie8/compat.js</a>&gt;&lt;/script&gt; <br />
-&lt;![endif]--&gt; <br />
-&lt;script type="text/javascript" src="<a href="./d3/lib/raphael/raphael.js">../../lib/raphael/raphael.js</a>"&gt;&lt;/script&gt; <br />
-&lt;script src="<a href="./d3/d3.v2.js">../../d3.v2.js</a>"&gt;&lt;/script&gt;
-</code>
-
-<h3>(2) Write Raphael Compatible d3 Code</h3>
-
-<p>When using d34raphael, you must remember you aren't writing SVG...You are writing Raphael vector code.</p>
-
-<p>The main differences between an SVG and Raphael version of a d3 page is:</p>
+<p>If you already know a little bit of <a href="http://d3js.org">d3</a>, you're ready to try d3<sup>4</sup>raphael.</p>
 
 <ol>
-    <li>Include d34raphael supported scripts</li>
-    <li>Setup the Raphael paper (instead of SVG)</li>
-    <li>Call Raphael version of SVG functions (like: <code>d3.raphael.axis()</code> instead of <code>d3.svg.axis()</code>)</li>
-    <li>Replace SVG g references (Raphael doesn't currently have group elements)</li>
-    <li>Tweak your CSS selectors (since raphael is a flat, unlike SVG)</li>
+    <li>
+        <p>Include the necessary Javascript</p>
+        <script src="https://gist.github.com/2607372.js?file=javascripts.snip.html"></script>
+        <ul>
+            <li><a href="http://sizzlejs.com/"><code>sizzle.js</code></a> - Sizzle Javascript CSS Selector Engine (IE Only)</li>
+            <li><a href="/d3/lib/ie8/compat.js"><code>ie8/compat.js</code></a> - Compatibility functions for IE 8 (IE Only)</li>
+            <li><a href="/d3/lib/raphael/raphael.js"><code>raphael.js</code></a> - Patched Raphael for d3<sup>4</sup>raphel</li>
+            <li><a href="/d3/d3.v2.js"><code>d3.v2.js</code></a> - d3 build with Raphael extensions</li>
+        </ul>
+    </li>
+    <li>
+        <p><a href="#code">Write Raphael compatible d3 code</a></p>
+        <ul>
+            <li>
+                <p>Create a Raphael d3 Selection</p>
+                <script src="https://gist.github.com/2607372.js?file=create-paper.snip.js"></script>
+            </li>
+            <li>
+                <p>Manipulate the paper</p>
+                <script src="https://gist.github.com/2607372.js?file=manipulate-paper.snip.js"></script>
+                <p>It looks like stock d3 except it renders with Raphael.  See the <a href="/api/index.html">API documentation</a> for full information on the <a href="/api/symbols/D3RaphaelSelection.html">d34raphael selection implementation</a>.</p>
+            </li>
+            <li>
+                <p>Replace <code>d3.svg.axis()</code> calls with <code>d3.raphael.axis()</code>.</p>
+                <script src="https://gist.github.com/2607372.js?file=d3-raphael-axis.snip.js"></script>
+                <p><code>d3.svg.XXX</code> calls that draw something need to be replaced with their d3<sup>4</sup>raphael equivalent.</p>
+            </li>
+        </ul>
+    </li>
 </ol>
 
-<p>You can see the <a href="#diff">specific differences in the d34raphael implementation</a> below.</p>
+<h3 id="code">Write Raphael Compatible d3 Code</h3>
 
-<h4>Area Chart Example Code</h4>
+<p>When using d34raphael, you must remember you aren't drawing with SVG, you are drawing with <a href="http://raphaeljs.com">Raphael</a>.</p>
+<p>Raphael exposes <a href="http://raphaeljs.com/reference.html#Paper.circle">shapes</a> and <a href="http://raphaeljs.com/reference.html#Element.attr">attribute names</a> that are largely identical to SVG which is why d3/SVG and d3/Raphael code look so similar.</p>
+<p>Look at the <a href="http://raphaeljs.com/reference.html">Raphael API documentation</a> to see what Raphael can do, and what <a href="http://raphaeljs.com/reference.html#Element.attr">attributes</a> are supported for manipulation by d34raphael.</p>
 
-<p>This is the area chart example code for d34raphael.</p>
+<h4>Differences between a d3/SVG and d3<sup>4</sup>raphael Page</h4>
 
-<script src="https://gist.github.com/2573905.js"> </script>
+<p>Since Raphael is a subset of both <a href="http://en.wikipedia.org/wiki/SVG">SVG</a> and <a href="http://en.wikipedia.org/wiki/Vector_Markup_Language">VML</a>, there are differences when using d34raphael and pure SVG.</p>
 
-<p>Looks like nice clean d3 right?</p>
+<p>Some specifics:</p>
 
-<h4 id="diff">Diff Between SVG and Raphael Version of Area Chart</h4>
+<dl>
+    <dt>d34raphael selections are on <a href="http://raphaeljs.com/reference.html#Element">Raphael.Element</a>s, not native DOM elements</dt>
+    <dd>
+        <p>Raphael uses a <a href="http://raphaeljs.com/reference.html#Element">wrapper class</a> that contains the native DOM element for the corresponding graphical representation.  These are the objects that are contained in d34raphael selections.  So, when you do <code>d3_paper.selectAll("rect").each(function(d, i) {}</code>, the <code>this</code> in the callback function is a <a href="http://raphaeljs.com/reference.html#Element">Raphael.Element</a> instance, not a DOM object.</p>
+        <p>You can get the native DOM object from a Raphael.Element by calling <code>element.node</code>, but remember that the <code>element.node</code> class will be different for SVG than VML.</p>
+    </dd>
 
-<p>These are the changes from the original SVG version of the area chart and the d34raphael version.</p>
+    <dt>Raphael doesn't have an SVG <code>g</code> equivalent</dt>
+    <dd>
+        <p>You can use Raphael's <code>paper.setStart()</code>/<code>paper.setFinish().transform(["t", x, y])</code> to transform sets of Raphael elements created between the two calls.</p>
+        <p>You will see this method used in many of the examples.</p>
+    </dd>
 
-<script src="https://gist.github.com/2573961.js"> </script>
+    <dt>Raphael elements aren't nested like SVG</dt>
+    <dd>
+        <p>Unlike SVG, all Raphael elements are peers in the context of the <a href="http://raphaeljs.com/reference.html#Paper">Raphael.Paper</a>.  So, you cannot have Raphael elements that are a child of another Raphael element.</p>
+        <p>Because of this, all d34raphael selections select on ALL elements in the Raphael.Paper, and are not limited to the scope of the elements in the existing selection.</p>
+        <p>For example, in stock d3:</p>
+        <script src="https://gist.github.com/2607372.js?file=d3-selectAll.snip.js"></script>
+        <p>When calling <code>selectAll</code> on an existing selection, the results are limited to those found as children of elements in the existing selection. Most likely, the result would be empty.</p>
+        <p>While, in d34raphael:</p>
+        <script src="https://gist.github.com/2607372.js?file=d3-raphael-selectAll.snip.js"></script>
+        <p>would give us the same set of <code>rect</code> instances, because the search scope hasn't changed between calls to <code>selectAll</code>, no mater how many times it is called.</p>
+    </dd>
+
+    <dt>CSS selectors are flat in d34raphael because the Raphael elements are flat hierarchically</dt>
+    <dd>
+        <p>Because (as discussed), all elements in Raphael are a direct child of the containing Raphael container, you never have a Raphael.Element that is the child of another element.  So while you might see a CSS selector like <code>g circle.point</code> in an SVG version of a page, in a d34raphael version, it would likely be just <code>circle.point</code> as the circle could never be a child of <code>g</code>.</p>
+    </dd>
+</dl>
+
+<h3 id="example">Annotated d3<sup>4</sup>raphael Example</h3>
+
+<p>Below is an annotated d34raphael example that highlights most of the features of the d34raphael extensions to d3.</p>
+
+<script src="https://gist.github.com/2607372.js?file=scatter-plot.html"></script>
+
+<p>For more examples of d34raphael in use, see <a href="/examples.html">the examples page</a>.</p>
