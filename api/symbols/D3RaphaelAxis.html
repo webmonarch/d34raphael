@@ -1,0 +1,712 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - D3RaphaelAxis</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	width: 160px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	margin-left: 190px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+		</style>
+	</head>
+
+	<body>
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<div id="header">
+</div>
+		<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+			<!-- begin publish.classesIndex -->
+			<div align="center"><a href="../index.html">Class Index</a>
+| <a href="../files.html">File Index</a></div>
+<hr />
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/d3.html">d3</a></li>
+	
+	<li><a href="../symbols/d3.raphael.html">d3.raphael</a></li>
+	
+	<li><a href="../symbols/D3RaphaelAxis.html">D3RaphaelAxis</a></li>
+	
+	<li><a href="../symbols/D3RaphaelEnterSelection.html">D3RaphaelEnterSelection</a></li>
+	
+	<li><a href="../symbols/D3RaphaelSelection.html">D3RaphaelSelection</a></li>
+	
+	<li><a href="../symbols/D3RaphaelUpdateSelection.html">D3RaphaelUpdateSelection</a></li>
+	
+</ul>
+<hr />
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class D3RaphaelAxis
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				
+			
+				A Raphael axis renderer function, intended to be used like <code><a href="https://github.com/mbostock/d3/wiki/SVG-Axes">d3.svg.axis</a></code>.
+  caveates and differences documented below.  <br />
+  <br />
+  If you don't see a method documented, it probably doesn't exist yet.<br />
+  <br />
+  NOTE: The object is actually a function with signature <code>function(selection)</code>, to be called with a selection to which it renders it's axis,
+				
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/src_raphael__documentation.js.html">_documentation.js</a>.
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class D3RaphaelAxis.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/D3RaphaelAxis.html#constructor">D3RaphaelAxis</a></b>()
+							</div>
+							<div class="description"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class D3RaphaelAxis.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/D3RaphaelAxis.html#classPrefix">classPrefix</a></b>(val)
+								</div>
+								<div class="description">Get or set the class name prefix appended to the class names used to differentiate parts of the rendered axis.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/D3RaphaelAxis.html#left">left</a></b>(val)
+								</div>
+								<div class="description">Get or set the left offset for the axis rendering.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/D3RaphaelAxis.html#orient">orient</a></b>(x)
+								</div>
+								<div class="description">Get or set the axis orientation.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/D3RaphaelAxis.html#scale">scale</a></b>(x)
+								</div>
+								<div class="description">Get or set the associated scale.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/D3RaphaelAxis.html#tickSize">tickSize</a></b>(x, y, z)
+								</div>
+								<div class="description">Get or set the size of major, minor and end ticks.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/D3RaphaelAxis.html#top">top</a></b>(val)
+								</div>
+								<div class="description">Get or set the top offset for axis rendering.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>D3RaphaelAxis</b>()
+				</div>
+				
+				<div class="description">
+					
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="classPrefix"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/D3RaphaelAxis.html">D3RaphaelAxis</a>}</span>
+					<b>classPrefix</b>(val)
+					
+					</div>
+					<div class="description">
+						Get or set the class name prefix appended to the class names used to differentiate parts of the rendered axis.<br />
+<br />
+Class name suffixes used internally are:
+<dl>
+    <dt>path</dt>
+    <dd>axis ticks</dd>
+    <dt>pathdomain</dt>
+    <dd>axis domain line (and end-ticks)</dd>
+</dl>
+
+So, for example, if you specified a class name prefix <code>xaxis_</code>, you would want to specify CSS selectors, <code>.xaxis_path</code> and <code>.xaxis_pathdomain</code>
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/src_raphael_axis.js.html">axis.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>val</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/D3RaphaelAxis.html">D3RaphaelAxis</a>}</span> this</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="left"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/D3RaphaelAxis.html">D3RaphaelAxis</a>}</span>
+					<b>left</b>(val)
+					
+					</div>
+					<div class="description">
+						Get or set the left offset for the axis rendering.  This is a work-around for the fact Raphael doesn't have a group element.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/src_raphael_axis.js.html">axis.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>val</b>
+									
+								</dt>
+								<dd>left offset, in pixels</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/D3RaphaelAxis.html">D3RaphaelAxis</a>}</span> this</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="orient"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/D3RaphaelAxis.html">D3RaphaelAxis</a>}</span>
+					<b>orient</b>(x)
+					
+					</div>
+					<div class="description">
+						Get or set the axis orientation. If orientation is not specified, returns the current orientation, which defaults to "bottom".
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/src_raphael_axis.js.html">axis.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>x</b>
+									
+								</dt>
+								<dd>orientation, one of top, bottom, or left.  NOTE: right currently unsupported.  top/bottom for horizontal axis, and left for vertical.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/D3RaphaelAxis.html">D3RaphaelAxis</a>}</span> this</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><code><a href="https://github.com/mbostock/d3/wiki/SVG-Axes#wiki-axis_orient">d3.svg.axis().orient()</a></code></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="scale"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/D3RaphaelAxis.html">D3RaphaelAxis</a>}</span>
+					<b>scale</b>(x)
+					
+					</div>
+					<div class="description">
+						Get or set the associated scale. If scale is specified, sets the scale and returns the axis. If scale is not specified, returns the current scale which defaults to a linear scale.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/src_raphael_axis.js.html">axis.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{d3.Scale}</span> <b>x</b>
+									
+								</dt>
+								<dd>scale</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/D3RaphaelAxis.html">D3RaphaelAxis</a>}</span> this</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><code><a href="https://github.com/mbostock/d3/wiki/SVG-Axes#wiki-axis_scale">d3.svg.axis().scale()</a></code></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="tickSize"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/D3RaphaelAxis.html">D3RaphaelAxis</a>}</span>
+					<b>tickSize</b>(x, y, z)
+					
+					</div>
+					<div class="description">
+						Get or set the size of major, minor and end ticks.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/src_raphael_axis.js.html">axis.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>x</b>
+									
+								</dt>
+								<dd>major tick size</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>y</b>
+									
+								</dt>
+								<dd>minor tick size (optional)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>z</b>
+									
+								</dt>
+								<dd>end tick size (optional)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/D3RaphaelAxis.html">D3RaphaelAxis</a>}</span> this</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><code><a href="https://github.com/mbostock/d3/wiki/SVG-Axes#wiki-axis_tickSize">d3.svg.axis().tickSize()</a></code></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="top"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/D3RaphaelAxis.html">D3RaphaelAxis</a>}</span>
+					<b>top</b>(val)
+					
+					</div>
+					<div class="description">
+						Get or set the top offset for axis rendering.  This is a work-around for the fact Raphael doesn't have a group element.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/src_raphael_axis.js.html">axis.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>val</b>
+									
+								</dt>
+								<dd>top offset, in pixels</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/D3RaphaelAxis.html">D3RaphaelAxis</a>}</span> this</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat May 05 2012 17:28:39 GMT-0700 (PDT)
+		</div>
+	</body>
+</html>

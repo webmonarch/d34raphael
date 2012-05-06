@@ -1,0 +1,54 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">// This is a dummy file to help JSDoc document the d34raphael code better.</span><span class="WHIT">
+<span class='line'>  2</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'>  3</span> </span><span class="COMM">// It is not intented to be included or compiled.</span><span class="WHIT">
+<span class='line'>  4</span> 
+<span class='line'>  5</span> </span><span class="COMM">/**
+<span class='line'>  6</span>  * @namespace
+<span class='line'>  7</span>  */</span><span class="WHIT">
+<span class='line'>  8</span> </span><span class="NAME">d3</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>  9</span> 
+<span class='line'> 10</span> </span><span class="COMM">/**
+<span class='line'> 11</span>  * @class Raphael aware selection, intended to be used like &lt;code>&lt;a href="https://github.com/mbostock/d3/wiki/Selections">d3.selection&lt;/a>&lt;/code>.
+<span class='line'> 12</span>  *  caveats and differences documented below.  &lt;br />
+<span class='line'> 13</span>  *  &lt;br />
+<span class='line'> 14</span>  *  Unlike SVG, in Raphael, all elements are in a flat list, all peer to eachother, and all the direct child of the root Raphael element.
+<span class='line'> 15</span>  *  This changes the behavior of some of the methods below (noted as appropriate).&lt;br />
+<span class='line'> 16</span>  *  &lt;br />
+<span class='line'> 17</span>  *  If you don't see a method documented, it probably doesn't exist yet.
+<span class='line'> 18</span>  *
+<span class='line'> 19</span>  * @constructor
+<span class='line'> 20</span>  */</span><span class="WHIT">
+<span class='line'> 21</span> </span><span class="NAME">D3RaphaelSelection</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 22</span> 
+<span class='line'> 23</span> </span><span class="COMM">/**
+<span class='line'> 24</span>  * @class Raphael aware update selection, intended to be used like &lt;code>&lt;a href="https://github.com/mbostock/d3/wiki/Selections">d3.selection&lt;/a>&lt;/code>.
+<span class='line'> 25</span>  * @constructor
+<span class='line'> 26</span>  * @extends D3RaphaelSelection
+<span class='line'> 27</span>  */</span><span class="WHIT">
+<span class='line'> 28</span> </span><span class="NAME">D3RaphaelUpdateSelection</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 29</span> 
+<span class='line'> 30</span> </span><span class="COMM">/**
+<span class='line'> 31</span>  * @class Raphael aware enter selection, intended to be used like &lt;code>&lt;a href="https://github.com/mbostock/d3/wiki/Selections">d3.selection&lt;/a>&lt;/code>.
+<span class='line'> 32</span>  *
+<span class='line'> 33</span>  * @constructor
+<span class='line'> 34</span>  */</span><span class="WHIT">
+<span class='line'> 35</span> </span><span class="NAME">D3RaphaelEnterSelection</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 36</span> 
+<span class='line'> 37</span> </span><span class="COMM">/**
+<span class='line'> 38</span>  * @class A Raphael axis renderer function, intended to be used like &lt;code>&lt;a href="https://github.com/mbostock/d3/wiki/SVG-Axes">d3.svg.axis&lt;/a>&lt;/code>.
+<span class='line'> 39</span>  *   caveates and differences documented below.  &lt;br />
+<span class='line'> 40</span>  *   &lt;br />
+<span class='line'> 41</span>  *   If you don't see a method documented, it probably doesn't exist yet.&lt;br />
+<span class='line'> 42</span>  *   &lt;br />
+<span class='line'> 43</span>  *   NOTE: The object is actually a function with signature &lt;code>function(selection)&lt;/code>, to be called with a selection to which it renders it's axis,
+<span class='line'> 44</span>  *
+<span class='line'> 45</span>  * @constructor
+<span class='line'> 46</span>  */</span><span class="WHIT">
+<span class='line'> 47</span> </span><span class="NAME">D3RaphaelAxis</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span></pre></body></html>

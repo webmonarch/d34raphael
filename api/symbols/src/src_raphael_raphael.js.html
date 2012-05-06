@@ -1,0 +1,31 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/**
+<span class='line'>  2</span>  * Initializes and creates the root {@link D3RaphaelSelection} for the specified
+<span class='line'>  3</span>  * Raphael Paper.
+<span class='line'>  4</span>  *
+<span class='line'>  5</span>  * @example
+<span class='line'>  6</span>  * var paper = new Raphael(document.body, 300, 200);
+<span class='line'>  7</span>  * var d3_raphael_selection = d3.raphael(paper);
+<span class='line'>  8</span>  *
+<span class='line'>  9</span>  * @see &lt;a href="http://raphaeljs.com/reference.html#Raphael">Raphael&lt;/a>
+<span class='line'> 10</span>  * @see &lt;a href="http://raphaeljs.com/reference.html#Paper">Raphael.Paper&lt;/a>
+<span class='line'> 11</span>  *
+<span class='line'> 12</span>  * @param {Raphael.Paper} paper
+<span class='line'> 13</span>  * @return {D3RaphaelSelection} a selection of the root Raphael.Paper element
+<span class='line'> 14</span>  *
+<span class='line'> 15</span>  * @function
+<span class='line'> 16</span>  * @namespace
+<span class='line'> 17</span>  */</span><span class="WHIT">
+<span class='line'> 18</span> </span><span class="NAME">d3.raphael</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">paper</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 19</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">root</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">D3RaphaelRoot</span><span class="PUNC">(</span><span class="NAME">paper</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 20</span> 
+<span class='line'> 21</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">d3_raphael_selection</span><span class="PUNC">(</span><span class="PUNC">[</span><span class="PUNC">[</span><span class="NAME">root.paper</span><span class="PUNC">]</span><span class="PUNC">]</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">root</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 22</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 23</span> 
+<span class='line'> 24</span> </span></pre></body></html>
