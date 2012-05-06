@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Minimal d34raphael Example</title>
+
+    <!--[if lte IE 8]>
+    <script type="text/javascript" src="./d3/lib/sizzle/sizzle.js"></script>
+    <script type="text/javascript" src="./d3/lib/ie8/compat.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="./d3/lib/raphael/raphael.js"></script>
+    <script type="text/javascript" src="./d3/d3.v2.js"></script>
+
+    <style type="text/css">
+        .point {
+            stroke: steelblue;
+            stroke-width: 5px;
+        }
+
+        .xaxis_path, .xaxis_pathdomain {
+            stroke: purple;
+        }
+
+        .yaxis_path, .yaxis_pathdomain {
+            stroke: darkgray;
+        }
+
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        var margins = { top: 30, right: 30, bottom: 30, left: 30 }; // margins of the Raphael paper
+        var width = 300 - margins.left - margins.right; // inner width of the paper (less margins)
+        var height = 200 - margins.top - margins.bottom; // inner height of the paper (less margins)
+
+        var data = [{x: 1, y: 1}, {x: 2, y: 2}, {x: 3, y: 3}]; // some data
+
+        var paper = new Raphael(document.body, width + margins.left + margins.right, height + margins.top + margins.bottom); // setup Raphael paper with margins
+
+        paper.setStart(); // create a Raphael set, which allows us to transform the entire set of Raphael elements like we would using groups (g) in SVG  (d34raphael specific)
+
+        var d3_paper = d3.raphael(paper); // create a d3 Raphael aware selection for the created paper, (d34raphael specific)
+
+        // create a linear d3 scale to transform data x values to horizontal pixel positions
+        var x = d3.scale.linear()
+                .domain(d3.extent(data.map(function(d) {return d.x;}))) // specify the data's range of x values
+                .range([0, width]); // specify the presentation width of x values
+
+        // create a linear d3 scale to transform data y values to vertical pixel positions
+        var y = d3.scale.linear()  // create a linear d3 scale
+                .domain(d3.extent(data.map(function(d) {return d.y;}))) // specify the data's range of y values
+                .range([height, 0]); // specify the presentation height of y values
+
+        d3_paper.selectAll("circle")
+                .data(data)
+                .enter().append("circle")  // add a Raphael circle for each datapoint
+                .attr("class", "point")    // give each circle the class name "point"
+                .attr("r", 5)              // set each circle's radius to 5
+                .attr("cx", function(d) { return x(d.x); }) // set each circle's x pixel position
+                .attr("cy", function(d) { return y(d.y); }) // set each circle's y pixel position
+
+        // now, draw some axes
+        var x_axis = d3.raphael.axis()
+                .classPrefix("xaxis_")// for created elements, add the prefix to the classnames (d34raphael specific, usually handled by CSS paper selectors)
+                .top(height)// offset the axis top by height, making the axis appear at the bottom of the graph (d34raphael specific, usually handled by SVG g element)
+                .scale(x);
+
+        d3_paper.call(x_axis); // render the x axis in the paper
+
+        var y_axis = d3.raphael.axis()
+                .classPrefix("yaxis_") // (d34raphael specific)
+                .orient("left")
+                .scale(y);
+
+        d3_paper.call(y_axis); // render the y axis in the paper
+
+        // transform all elements created between here and the opening .setStart() call, translating them by the top
+        // and left margin (d34raphael specific, replacement for SVG g translation).
+        paper.setFinish().transform(["t", margins.top, margins.left]);
+    </script>
+
+<p>Minimal d34raphael example, showing how to use d3 to render Raphael elements.</p>
+</body>
+</html>
