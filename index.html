@@ -10,6 +10,12 @@ layout: default
     as d3 natively does with SVG.
 </p>
 
+<h2>Why?</h2>
+<p>
+    Because Internet Explorer &lt;= 8 doesn't support SVG, and thus doesn't support d3.
+</p>
+
+
 <h2>See it in action!</h2>
 <p class="inline-anchors">
     <a href="./examples.html">
@@ -35,13 +41,6 @@ layout: default
     <li>(For IE8) <a href="./d3/lib/ie8/compat.js">IE Array.prototype and CSS fixes</a></li>
     <li><a href="./usage.html">Write Raphael compatible d3</a></li>
 </ol>
-
-<h2>Why?</h2>
-<p>
-    Because Internet Explorer &lt;= 8 is still important to many people. IE8 and below doesn't natively
-    support SVG, but does support an older Microsoft vector drawing standard called VML.  Raphael provides an
-    abstraction layer between your Javascript code and the vector art implementation of the browser.
-</p>
 
 <p>
     Specifically, Raphael does VML for IE8 and SVG for everyone else.
