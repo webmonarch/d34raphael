@@ -37,6 +37,8 @@ h1 a, h1 a:visited, h1 a:hover {
     border: solid 1px #d3d3d3;
 
     padding: 0 20px 20px 20px;
+
+    min-height: 400px;
 }
 
 #navcontainer {
@@ -53,6 +55,31 @@ h1 a, h1 a:visited, h1 a:hover {
 
     text-decoration: none;
 }
+
+#postscontainer {
+    clear: right;
+    float: right;
+
+    margin-left: 10px;
+    border-left: solid 1px lightgray;
+    padding-left: 10px;
+
+    padding-bottom: 20px;
+}
+
+#postscontainer a.postlink {
+    text-decoration: none;
+}
+
+#postscontainer .posttitle {
+    font-weight: bolder;
+}
+
+#postscontainer .postdate {
+    font-size: 0.7em;
+    color: gray;
+}
+
 
 .warn {
     background-color: #ffb6c1;
