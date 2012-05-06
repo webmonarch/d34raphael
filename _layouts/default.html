@@ -4,7 +4,7 @@
 <head>
     <title>{{ page.title }}</title>
 
-    <link href="/site.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="{{ page.root }}/site.css" media="all" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript">
 
@@ -22,15 +22,15 @@
 </head>
 <body>
 <div id="header">
-    <h1><a href="/">d3<sup>4</sup>raphael</a></h1>
+    <h1><a href="{{ page.root }}/">d3<sup>4</sup>raphael</a></h1>
     <h2>d3 with support for IE 8 and Raphael</h2>
 </div>
 <div id="body">
     <div id="navcontainer">
-        <a href="/examples.html">Examples</a>
-        <a href="/usage.html">Usage</a>
-	<a href="/api/index.html" target="_blank">API</a>
-        <a href="/help.html">Help Us</a>
+        <a href="{{ page.root }}/examples.html">Examples</a>
+        <a href="{{ page.root }}/usage.html">Usage</a>
+	<a href="{{ page.root }}/api/index.html" target="_blank">API</a>
+        <a href="{{ page.root }}/help.html">Help Us</a>
     </div>
 
     <div id="postscontainer">
