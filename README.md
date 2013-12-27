@@ -1,14 +1,14 @@
 d34raphael
 ==========
 
-**NOTE: This project is effectively dead.  I've not been able to support it.**
-**If you would like to take ownership, please ping me**
-**-- Eric Webb, Aug 19, 2013**
+d3 support for raphael. This means it supports IE!
 
-d3 support for raphael.
+*This project is in maintenance mode* -- it tracks *d3v2* and uses a single-package,
+brute-force way of injecting Raphael support into d3. That said, it's
+battle-tested, and tested and used in-production at [Socrata](https://github.com/socrata).
+It works fully on IE8+.
 
-This is a project to demonstrate and discuss this proposed Raphael support
-in d3.
+If you are looking for a more modern approach, take a look at [r2d3](https://github.com/mhemesath/r2d3/).
 
 ## Try it
 
